@@ -1,8 +1,8 @@
 const express =require('express')
 const app=express()
 app.use(express.json())
-app.get('/user',(req,res)=>{
-    res.send({path:req.path,...req.query})
+app.get('/user/:id/:name',(req,res)=>{
+    res.send({path:req.query,params:req.params})
 })
 
 app.post('/user',(req,res)=>{
@@ -12,6 +12,6 @@ app.post('/user',(req,res)=>{
     }
     res.send(arr)
 })
-app.listen(1255,()=>{
+app.listen(1355,()=>{
     console.log("Running")
 })
